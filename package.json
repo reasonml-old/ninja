@@ -1,0 +1,63 @@
+{
+  "name": "ninja-build-system",
+  "version": "1.7.2",
+  "description": "Npm installable version of ninja-build - powered by Esy.",
+
+  "<UserNotes>": "---------------------------------------------------------------------------",
+  "1. ": "- This Repo is merely a mirror of the official ninja-build. We only add this single configuration file.",
+  "1. ": "- This is a self-contained, built-on-host version of ninja.",
+  "2. ": "- It will not automatically build because the top level app should",
+  "3. ": "- be the one to build everything so that esy can optimize/cache the build.",
+  "4. ": "- If your top level app does not use esy, you can still use this ninja-build-system",
+  "5. ": "- as a devDependency in your build scripts. Just manually invoke",
+  "6. ": "- ./node_modules/.bin/esy build and then you can run commands like",
+  "7. ": "- and then you can run commands like",
+  "8. ": "- ./node_modules/.bin/esy ninja",
+  "9.": "- and",
+  "10.":"- ./node_modules/.bin/esy anyCommand You Like Here",
+  "11.":"- But you should really just be using esy for your top level app.",
+  "</UserNotes>": "--------------------------------------------------------------------------",
+
+  "<DevelopmentNotes>": "------------------------------------------------------",
+  "1.": "To push a new release to github:",
+  "2.": "((git tag --delete v1.7.2-esy &> /dev/null) || true) && git tag -a v1.7.2-esy -m 'v1.7.2-esy'",
+  "3.": "git push origin v1.7.2-esy",
+  "</DevelopmentNotes>": "-----------------------------------------------------",
+
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/esy install && ./node_modules/.bin/esy ./node_modules/.bin/esy which ninja"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reasonml/ninja.git"
+  },
+  "keywords": [
+    "ninja",
+    "ninja-build",
+    "make",
+    "cmake",
+    "esy"
+  ],
+  "buildsInSource": true,
+  "esy": {
+    "build": [
+      "./configure.py --bootstrap",
+      "cp ./ninja $cur__bin/ninja"
+    ],
+    "exportedEnv": {
+    }
+  },
+  "author": "",
+  "license": "SEE LICENSE IN COPYING",
+  "bugs": {
+    "url": "https://github.com/reasonml/ninja/issues"
+  },
+  "devDependencies": {
+    "esy": "git://github.com/jordwalke/esy.git#beta-v0.0.2"
+  },
+  "homepage": "https://github.com/reasonml/ninja#readme"
+}

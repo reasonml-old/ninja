@@ -1,3 +1,20 @@
+
+# Note:
+
+This is an `esy` compatible `package.json` version of the ninja build
+system. It does *not* modify `ninja` at all, it only adds a `package.json`
+file so that `ninja` can be depended on from `package.json` projects:
+
+### How:
+
+Add the following to your `"dependencies"` in `package.json`.
+
+"ninja-build-system": "reasonml/ninja.git#v1.7.2-esy" 
+
+
+
+# Original `README` below:
+
 Ninja is a small build system with a focus on speed.
 https://ninja-build.org/
 
